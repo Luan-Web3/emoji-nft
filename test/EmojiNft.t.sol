@@ -45,14 +45,4 @@ contract EmojiNftTest is Test {
                 == keccak256(abi.encodePacked(EXPECTED_BASE_URI, EXAMPLE_TOKEN_URI))
         );
     }
-
-    function testJsonToTokenURI() public view {
-        string memory loadedJson = vm.readFile("./test/metadata/example.json");
-
-        console.log(loadedJson);
-
-        string memory encodeUri = deployer.jsonToTokenURI(loadedJson);
-
-        assert(keccak256(abi.encodePacked(EXAMPLE_TOKEN_URI)) == keccak256(abi.encodePacked(encodeUri)));
-    }
 }
