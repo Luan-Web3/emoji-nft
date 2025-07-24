@@ -15,12 +15,8 @@ contract EmojiNftScript is Script {
         return emojiNft;
     }
 
-    function jsonToTokenURI(
-        string memory json
-    ) public pure returns (string memory) {
-        string memory jsonBase64Encoded = Base64.encode(
-            bytes(string(abi.encodePacked(json)))
-        );
+    function jsonToTokenURI(string memory json) public pure returns (string memory) {
+        string memory jsonBase64Encoded = Base64.encode(bytes(string(abi.encodePacked(json))));
 
         return string(abi.encodePacked(jsonBase64Encoded));
     }

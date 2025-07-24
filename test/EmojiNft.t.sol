@@ -25,14 +25,8 @@ contract EmojiNftTest is Test {
     }
 
     function testInitializedCorrectly() public view {
-        assert(
-            keccak256(abi.encodePacked(NFT_NAME)) ==
-                keccak256(abi.encodePacked(emojiNft.name()))
-        );
-        assert(
-            keccak256(abi.encodePacked(NFT_SYMBOL)) ==
-                keccak256(abi.encodePacked(emojiNft.symbol()))
-        );
+        assert(keccak256(abi.encodePacked(NFT_NAME)) == keccak256(abi.encodePacked(emojiNft.name())));
+        assert(keccak256(abi.encodePacked(NFT_SYMBOL)) == keccak256(abi.encodePacked(emojiNft.symbol())));
     }
 
     function testCanMintAndHaveABalance() public {
@@ -47,10 +41,8 @@ contract EmojiNftTest is Test {
         emojiNft.mintNft(EXAMPLE_TOKEN_URI);
 
         assert(
-            keccak256(abi.encodePacked(emojiNft.tokenURI(0))) ==
-                keccak256(
-                    abi.encodePacked(EXPECTED_BASE_URI, EXAMPLE_TOKEN_URI)
-                )
+            keccak256(abi.encodePacked(emojiNft.tokenURI(0)))
+                == keccak256(abi.encodePacked(EXPECTED_BASE_URI, EXAMPLE_TOKEN_URI))
         );
     }
 
@@ -61,9 +53,6 @@ contract EmojiNftTest is Test {
 
         string memory encodeUri = deployer.jsonToTokenURI(loadedJson);
 
-        assert(
-            keccak256(abi.encodePacked(EXAMPLE_TOKEN_URI)) ==
-                keccak256(abi.encodePacked(encodeUri))
-        );
+        assert(keccak256(abi.encodePacked(EXAMPLE_TOKEN_URI)) == keccak256(abi.encodePacked(encodeUri)));
     }
 }
