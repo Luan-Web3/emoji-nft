@@ -24,7 +24,7 @@ contract DefaultUriMinterScript is Script {
         tokenURIs[2] = jsonToTokenURI(vm.readFile("./metadata/poker-face.json"));
         tokenURIs[3] = jsonToTokenURI(vm.readFile("./metadata/stupid.json"));
         tokenURIs[4] = jsonToTokenURI(vm.readFile("./metadata/vomiting.json"));
-        // tokenURIs[5] = jsonToTokenURI(vm.readFile("./metadata/zombie.json"));
+        tokenURIs[5] = jsonToTokenURI(vm.readFile("./metadata/zombie.json"));
 
         vm.startBroadcast();
         mintNftOnContract(tokenURIs[0]);
@@ -32,7 +32,7 @@ contract DefaultUriMinterScript is Script {
         mintNftOnContract(tokenURIs[2]);
         mintNftOnContract(tokenURIs[3]);
         mintNftOnContract(tokenURIs[4]);
-        // mintNftOnContract(tokenURIs[5]);
+        mintNftOnContract(tokenURIs[5]);
         vm.stopBroadcast();
 
         return emojiNft;
